@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<div class="container-sm" my-3>
+  <form action="/prediction" method="POST">
+    <label for="basic-url" class="form-label">Your News URL</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon3">URL</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="https://example.com/News/Arcticle"
+        name="url"
+        id="basic-url"
+        aria-describedby="basic-addon3"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Predict</button>
+  </form>
+</div>
+<div style="min-height: 120px">
+  <div
+    class="container collapse-horizontal multi-collapse p-3"
+    id="collapsecard"
+  >
+    <div class="container card" style="width: 18rem" my-3>
+      <img src="static\github.jpg" class="card-img-top" alt="src repo" />
+      <div class="card-body">
+        <h5 class="card-title">fake-News-Classification</h5>
+        <p class="card-text">
+          Fake News Detection via URL using pretrained Machine Learning NLP
+          models.
+        </p>
+        <a
+          href="https://github.com/cxinu/fake-News-Classification.git"
+          class="btn btn-primary"
+          >Source Code</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

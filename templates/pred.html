@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block content %} {% if prob == 200 %}
+<div class="container" my-3>
+  <div class="alert alert-danger" role="alert">
+    Invaild URL - Please Enter A Vaild News URL
+  </div>
+</div>
+{% elif prob > 50 %}
+<div class="container" my-3>
+  <div class="alert alert-success" role="alert">
+    News is Predicted to be Real - {{prob}}%
+  </div>
+</div>
+{% elif prob > 30 %}
+<div class="container" my-3>
+  <div class="alert alert-warning" role="alert">
+    This News may not be Real - {{prob}}%
+  </div>
+</div>
+{% else %}
+<div class="container" my-3>
+  <div class="alert alert-danger" role="alert">
+    This News might be Fake - {{prob}}%
+  </div>
+</div>
+{% endif %}
+<div class="container" my-3>
+  <form action="/prediction" method="POST">
+    <label for="basic-url" class="form-label">Your News URL</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon3">URL</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="https://example.com/News/Arcticle"
+        name="url"
+        id="basic-url"
+        aria-describedby="basic-addon3"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Predict</button>
+    <a
+      class="btn btn-primary mx-2"
+      data-bs-toggle="collapse"
+      data-bs-target=".multi-collapse"
+      href="#collapseExample"
+      role="button"
+      aria-expanded="true"
+      aria-controls="collapseExample collapsecard"
+    >
+      Show Article
+    </a>
+  </form>
+  <div class="collapse multi-collapse my-3" id="collapseExample" py-1>
+    <div class="card card-body">{{text}}</div>
+  </div>
+</div>
+<div style="min-height: 120px">
+  <div class="container collapse multi-collapse p-3" id="collapsecard">
+    <div class="container card" style="width: 18rem" my-3>
+      <img src="static\github.jpg" class="card-img-top" alt="src repo" />
+      <div class="card-body">
+        <h5 class="card-title">fake-News-Classification</h5>
+        <p class="card-text">
+          Fake News Detection via URL using pretrained Machine Learning NLP
+          models.
+        </p>
+        <a
+          href="https://github.com/cxinu/fake-News-Classification.git"
+          class="btn btn-primary"
+          >Source Code</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+sklearn
+numpy
+pandas
+pillow
+newspaper3k
+flask
